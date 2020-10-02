@@ -28,6 +28,83 @@ Spring Tool Suite (STS)
 
 
 
+### Build an executable JAR
+You can run the application from the command line using:
+```
+mvn spring-boot:run
+```
+Or you can build a single executable JAR file that contains all the necessary dependencies, classes, and resources with:
+```
+mvn clean package
+```
+Then you can run the JAR file with:
+```
+java -jar target/*.jar
+```
+
+*Instead of `mvn` you can also use the maven-wrapper `./mvnw` to ensure you have everything necessary to run the Maven build.*
+
+## Running the application locally
+
+There are several ways to run a Spring Boot application on your local machine. One way is to execute the `main` method in the `com.arc.sbtest.SBtemplateApplication` class from your IDE.
+
+* 	Download the zip or clone the Git repository.
+* 	Unzip the zip file (if you downloaded one)
+* 	Open Command Prompt and Change directory (cd) to folder containing pom.xml
+* 	Open Eclipse
+	* File -> Import -> Existing Maven Project -> Navigate to the folder where you unzipped the zip
+	* Select the project
+* 	Choose the Spring Boot Application file (search for @SpringBootApplication)
+* 	Right Click on the file and Run as Java Application
+
+Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html) like so:
+
+```shell
+mvn spring-boot:run
+```
+
+The code can also be built into a jar and then executed/run. Once the jar is built, run the jar by double clicking on it or by using the command `java -jar SBtemplate-0.0.1-SNAPSHOT.jar`
+
+To shutdown the jar, follow the below mentioned steps on a Windows machine.
+
+*	In command prompt execute the **jcmd** command to print a list of all running Java processes
+*	**Taskkill /PID PROCESS_ID_OF_RUNNING_APP /F** execute this command by replacing the **PROCESS_ID_OF_RUNNING_APP** with the actual process id of the running jar found out from executing the previous command
+
+The app will start running at <http://localhost:8080>, change the database settings in **application.properties** file as per your need.
+
+## Running the application via docker container
+
+* 	[anantha/spring-boot-application-template](https://hub.docker.com/repository/docker/anantha/spring-boot-application-template) - DockerHub Image
+
+DockerHub Pull Command
+
+```text
+docker pull anantha/spring-boot-application-template
+```
+
+Ensure you build a jar of the application before building a docker image.  
+
+```text
+`mvn package -Dmaven.test.skip=true`    //skip all tests and build. The build once completed is available in target folder
+```
+
+```text
+`mvn clean package`                     //run all tests and build
+```
+
+On Windows machine use **Windows Powershell**, navigate to the project folder where Dockerfile is present.
+
+|                           Command                        |                                 Description                              |
+|----------------------------------------------------------|--------------------------------------------------------------------------| 
+|`docker images`                                           | take a look at the container images.                                     |
+|`docker ps`                                               | list all the running containers.                                         |
+|`docker ps -a`                                            | list all the containers, including the ones that have finished executing.|
+|**`docker build -t spring-boot-application-template .`**  | **Build docker image of the project**                                    |
+|**`docker run spring-boot-application-template`**         | **run the project's docker container**                                   |
+|`docker stop [container_id]`                              | stop a container                                                         |
+|`docker rm $(docker ps -aq)`                              | stop and remove all containers                                           |
+
+
 #### Instructions
 
 * Fork and clone the repository
