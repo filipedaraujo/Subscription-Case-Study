@@ -6,9 +6,9 @@ xx
 zdsafff 
 dsdsdsa
 
-![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/open-telemetry/specification.svg) ![GitHub tag (latest SemVer pre-release)](https://img.shields.io/github/tag-pre/open-telemetry/specification.svg)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/filipedaraujo/SubscriptionCaseStudy.jpeg) ![GitHub tag (latest SemVer pre-release)](https://img.shields.io/github/tag-pre/filipedaraujo/SubscriptionCaseStudy.jpeg)
 
-![OpenTelemetry Logo](https://opentelemetry.io/img/logos/opentelemetry-horizontal-color.png)
+
 
 ### Dev Setup
 
