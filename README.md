@@ -19,7 +19,7 @@ The subscription service has to persist the subscription and returns the ID of t
 To complete the subscription process, once the subscription was persisted by the subscription service, someway, the email service will receive the required  information to send an email to the user (take in account the SLAs to choose the best approach for this communication).
 
 ## Solution Overview 
-All solution design can be consulted in the following presentation stored in `\solution\` folder.
+All solution design can be consulted in the following presentation stored in 
 
 <img src="subscription-service-solution.jpg"/>
 
