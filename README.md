@@ -1,4 +1,4 @@
-# SubscriptionCaseStudy
+# Subscription Case Study
 Case Study to design, code and deploy Subscription Service
 
 ## Mission Statement
