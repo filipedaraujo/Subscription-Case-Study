@@ -1,6 +1,24 @@
 # SubscriptionCaseStudy
 Case Study to design, code and deploy Subscription Service
 
+## Mission Statement
+With the information given and additional assumptions of yours, you should develop an API for SUBSCRIPTIONs using the Java framework of your choice (ideally use Spring Boot) or NodeJS framework of your choice (preferably ExpressJS).   
+
+To create subscriptions a single endpoint will be created: in the public service.
+
+Subscriptions contain: email, firstName, gender, dateOfBith, flag for consent and the newsletter Id corresponding to the campaign. Only gender and firstName are optional values. 
+
+Rest of services receive the same parameters.
+
+Services must be secure, only public service is accessible from the end user.
+
+TIP: an example of a frontend application making use of this service would be similar tohttps://www.adidas.co.uk/on/demandware.store/Sites-adidas-GB-Site/en_GB/Newsletter-Subscribe
+
+The subscription service has to persist the subscription and returns the ID of the created subscription to the public service.
+
+To complete the subscription process, once the subscription was persisted by the subscription service, someway,, the email service will receive the required  information to send an email to the user (take in account the SLAs to choose the best approach for this communication).
+
+
 ## Getting Started
 
 ### Requirements
@@ -27,6 +45,62 @@ Spring Tool Suite (STS)
 * 	[Azure Cloud](https://azure.microsoft.com/) - Microsoft Cloud Provider
 
 
+### Spring Boot 2 REST API Controller
+In Spring, a controller class, which is capable of serving REST API requests, is called rest controller. It should be annotated with @RestController annotation.
+The resource uris are specified in @RequestMapping annotations. It can be applied at class level and method level both. Complete URI for an API is resolved after adding class level path and method level path.
+
+In given controller, we have one API methods. 
+
+HTTP POST /subscription – Register new subscription and return subcription id 
+
+### @SpringBootApplication
+Our REST APIs skeleton is ready. Now we need to configure Spring to detect our rest controller (using auto scanning) and deploy apis in embedded tomcat server. Thankfully, Spring boot makes all these things very easy by using the concept of auto configuration.
+
+Auto-configuration attempts to guess and configure beans we you are likely to need. Auto-configuration classes are usually applied based on the jars in application classpath and the beans we have defined additionally in @Configuration classes.
+
+In this case, it does following things.
+
+It detects spring-webmvc so configure default spring mvc application beans. It help in scan and configure @RestController and similar annotations.
+It detects embed tomcat jars so configure embedded tomcat for us.
+It detects JSON jars so configure JSON support to APIs.
+
+### Model classes and DAO
+
+```
+package com.howtodoinjava.rest.model;
+ 
+public class Subscitption {
+  
+  public Subscription() {
+  }
+ 
+    public Subscription(String email, String firstName, String gender, Date dateOfBirth, Boolean flagConsent,  String newsletterId, String subscriptionId) {
+        super();
+        this.email = email;
+        this.firstName = firstName;
+        this.gender = gender;
+        this.dateOfBirth = dateOfBirth;
+        this.flagConsent = flagConsent;
+        this.newsletterId = newsletterId;
+        this.subscriptionId = subscriptionId;
+    }
+  
+    private String email;
+    private String firstName;
+    private String gender;
+    private Date dateOfBirth;
+    private Boolean flagConsent;
+    private String newsletterId;
+    private Sring subscriptionId;
+ 
+    //Getters and setters
+ 
+    @Override
+    public String toString() {
+        return subcriptionId;
+    }
+}
+```
 
 ### Build an executable JAR
 You can run the application from the command line using:
