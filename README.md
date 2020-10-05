@@ -215,4 +215,3 @@ On Windows machine use **Windows Powershell**, navigate to the project folder wh
 |`docker rm $(docker ps -aq)`                              | stop and remove all containers                                           |
 
 
-
