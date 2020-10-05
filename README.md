@@ -19,7 +19,6 @@ The subscription service has to persist the subscription and returns the ID of t
 To complete the subscription process, once the subscription was persisted by the subscription service, someway, the email service will receive the required  information to send an email to the user (take in account the SLAs to choose the best approach for this communication).
 
 ## Solution Overview 
-All solution design can be consulted in the following presentation stored in 
 
 <img src="subscription-service-solution.jpg"/>
 
@@ -53,7 +52,7 @@ Spring Tool Suite (STS)
 * 	[Azure Cloud](https://azure.microsoft.com/) - Microsoft Cloud Provider
 
 
-### Spring Boot 2 REST API Controller
+### Spring Boot REST API Controller
 In Spring, a controller class, which is capable of serving REST API requests, is called rest controller. It should be annotated with @RestController annotation.
 The resource uris are specified in @RequestMapping annotations. It can be applied at class level and method level both. Complete URI for an API is resolved after adding class level path and method level path.
 
@@ -61,7 +60,7 @@ In given controller, we have one API methods.
 
 HTTP POST /subscription – Register new subscription and return subcription id 
 
-### @SpringBootApplication
+### Spring Boot Application
 Our REST APIs skeleton is ready. Now we need to configure Spring to detect our rest controller (using auto scanning) and deploy apis in embedded tomcat server. Thankfully, Spring boot makes all these things very easy by using the concept of auto configuration.
 
 Auto-configuration attempts to guess and configure beans we you are likely to need. Auto-configuration classes are usually applied based on the jars in application classpath and the beans we have defined additionally in @Configuration classes.
@@ -73,6 +72,47 @@ It detects embed tomcat jars so configure embedded tomcat for us.
 It detects JSON jars so configure JSON support to APIs.
 
 ### Model classes and DAO
+
+```
+InputMetada.java
+```
+```
+package com.howtodoinjava.rest.model;
+import java.util.DateTime;
+ 
+public class Metadata {
+  
+  public InputMetadata() {
+  }
+ 
+    public InputMetadata(String traceParent, String traceState, String messageId, String messageCreatorId, DateTime messageCreationTimestamp) {
+        super();
+        this.traceParent = traceParent;
+        this.traceState = traceState;
+        this.messageId = messageId;
+        this.messageCreatorId = messageCreatorId;
+        this.messageCreationTimestamp = messageCreationTimestamp;
+    }
+  
+    private String traceParent;
+    private String traceState;
+    private String messageId;
+    private String messageCreatorId;
+    private DateTime messageCreationTimestamp;
+ 
+    //Getters and setters
+ 
+    @Override
+    public String toString() {
+        return "InputMetadata [traceParent=" + traceParent + ", traceState=" + traceState + ", messageId=" + messageId + ", 
+	messageCreatorId=" + messageCreatorId + ", messageCreationTimestamp=" + messageCreationTimestamp + "]"
+    }
+}
+```
+
+```
+Subscription.java
+```
 
 ```
 package com.howtodoinjava.rest.model;
@@ -108,6 +148,11 @@ public class Subscitption {
         return subcriptionId;
     }
 }
+```
+
+```
+DAO class uses a static list to store data. Here we need to implement actual database interaction.
+SubscriptionDAO.java
 ```
 
 ### Running the application locally
