@@ -6,9 +6,9 @@ The resource uris are specified in `@RequestMapping` annotations. It can be appl
 
 The controller of the application, `SubscriptionController`, defines the REST API endpoints. We have 3 API methods. 
 
-HTTP POST /subscription – Register new subscription and return subcription id 
-HTTP GET /list  - List All Subscriptions
-HTTP GET  /show/{subscription id} - Get Subscription By Id
+* HTTP POST /subscription – Register new subscription and return subcription id 
+* HTTP GET /list  - List All Subscriptions
+* HTTP GET  /show/{subscription id} - Get Subscription By Id
 
 ## Spring Boot Application
 Our REST APIs skeleton is ready. Now we need to configure Spring to detect our rest controller (using auto scanning) and deploy apis in embedded tomcat server. Thankfully, Spring boot makes all these things very easy by using the concept of auto configuration.
