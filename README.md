@@ -51,3 +51,5 @@ Spring Tool Suite (STS)
 * 	[Azure Kubernertes Service](https://azure.microsoft.com/services/kubernetes-service/) - Kuberneters Service provided by Azure
 * 	[Azure Cloud](https://azure.microsoft.com/) - Microsoft Cloud Provider
 
+### Spring Boot Subscription Application
+*   /filipedaraujo/SubscriptionCaseStudy/spring-boot-rest-2-master
