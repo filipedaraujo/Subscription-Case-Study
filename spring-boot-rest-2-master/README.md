@@ -132,7 +132,7 @@ The app will start running at <http://localhost:8080>, change the database setti
 
 ## Running the application via docker container
 
-* 	[filipedaraujo/spring-boot-subscription-service](https://hub.docker.com/repository/docker/filipedaraujo/spring-boot-subscription-service) - DockerHub Image
+* 	[filipedaraujo/SubscriptionCaseStudy/spring-boot-rest-2-master](https://hub.docker.com/repository/docker/filipedaraujo/spring-boot-subscription-service) - DockerHub Image
 
 DockerHub Pull Command
 
