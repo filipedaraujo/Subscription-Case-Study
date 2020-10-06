@@ -4,9 +4,11 @@
 In Spring, a controller class, which is capable of serving REST API requests, is called rest controller. It should be annotated with @RestController annotation.
 The resource uris are specified in @RequestMapping annotations. It can be applied at class level and method level both. Complete URI for an API is resolved after adding class level path and method level path.
 
-In given controller, we have one API methods. 
+In given controller, we have 3 API methods. 
 
 HTTP POST /subscription – Register new subscription and return subcription id 
+HTTP GET /list  - List All Subscriptions
+HTTP GET  /show/{subscription id} - Get Subscription By 	Id
 
 ## Spring Boot Application
 Our REST APIs skeleton is ready. Now we need to configure Spring to detect our rest controller (using auto scanning) and deploy apis in embedded tomcat server. Thankfully, Spring boot makes all these things very easy by using the concept of auto configuration.
@@ -164,6 +166,9 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
 
 At this point, you should be able to test the configuration by starting the app and pointing your browser to `http://localhost:8080/v2/api-docs.`
 
+<img src="Swagger_JSON_Output.jpg"/>
+
+For nice human readable structured documentation, and this is where Swagger UI takes over, pointing your browser to `http://localhost:8080/swagger-ui.html`, you will see the generated documentation rendered by Swagger UI.
 
 
 ## Running the application locally
