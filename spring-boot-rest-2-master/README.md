@@ -1,14 +1,14 @@
 # Spring Boot Subscription Application
 
 ## Spring Boot REST API Controller
-In Spring, a controller class, which is capable of serving REST API requests, is called rest controller. It should be annotated with @RestController annotation.
-The resource uris are specified in @RequestMapping annotations. It can be applied at class level and method level both. Complete URI for an API is resolved after adding class level path and method level path.
+In Spring, a controller class, which is capable of serving REST API requests, is called rest controller. It should be annotated with `@RestController` annotation.
+The resource uris are specified in `@RequestMapping` annotations. It can be applied at class level and method level both. Complete URI for an API is resolved after adding class level path and method level path.
 
-In given controller, we have 3 API methods. 
+The controller of the application, `SubscriptionController`, defines the REST API endpoints. We have 3 API methods. 
 
 HTTP POST /subscription – Register new subscription and return subcription id 
 HTTP GET /list  - List All Subscriptions
-HTTP GET  /show/{subscription id} - Get Subscription By 	Id
+HTTP GET  /show/{subscription id} - Get Subscription By Id
 
 ## Spring Boot Application
 Our REST APIs skeleton is ready. Now we need to configure Spring to detect our rest controller (using auto scanning) and deploy apis in embedded tomcat server. Thankfully, Spring boot makes all these things very easy by using the concept of auto configuration.
@@ -17,9 +17,13 @@ Auto-configuration attempts to guess and configure beans we you are likely to ne
 
 In this case, it does following things.
 
-It detects spring-webmvc so configure default spring mvc application beans. It help in scan and configure @RestController and similar annotations.
+It detects spring-webmvc so configure default spring mvc application beans. It help in scan and configure `@RestController` and similar annotations.
 It detects embed tomcat jars so configure embedded tomcat for us.
 It detects JSON jars so configure JSON support to APIs.
+
+Our application implements a set of REST endpoints to manage subscriptions. We have a Subscription JPA entity and a repository named `SubscriptionRepository` that extends `CrudRepository` to perform CRUD operations on subscriptions against an in-memory H2 database.
+
+The service layer is composed of a `SubscriptionService` interface and a `SubscriptionServiceImpl` implementation class.
 
 ## Model classes 
 
