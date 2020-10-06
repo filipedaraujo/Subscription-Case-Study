@@ -166,7 +166,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
 
 At this point, you should be able to test the configuration by starting the app and pointing your browser to `http://localhost:8080/v2/api-docs.`
 
-<img src="filipedaraujo/SubscriuptionCaseStudy/spring-boot-rest-2-master/Swagger_JSON_Output.jpg"/>
+<img src="/Swagger_JSON_Output.png"/>
 
 For nice human readable structured documentation, and this is where Swagger UI takes over, pointing your browser to `http://localhost:8080/swagger-ui.html`, you will see the generated documentation rendered by Swagger UI.
 
