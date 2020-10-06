@@ -71,88 +71,98 @@ It detects spring-webmvc so configure default spring mvc application beans. It h
 It detects embed tomcat jars so configure embedded tomcat for us.
 It detects JSON jars so configure JSON support to APIs.
 
-### Model classes and DAO
-
-```
-InputMetada.java
-```
-```
-package com.howtodoinjava.rest.model;
-import java.util.DateTime;
- 
-public class Metadata {
-  
-  public InputMetadata() {
-  }
- 
-    public InputMetadata(String traceParent, String traceState, String messageId, String messageCreatorId, DateTime messageCreationTimestamp) {
-        super();
-        this.traceParent = traceParent;
-        this.traceState = traceState;
-        this.messageId = messageId;
-        this.messageCreatorId = messageCreatorId;
-        this.messageCreationTimestamp = messageCreationTimestamp;
-    }
-  
-    private String traceParent;
-    private String traceState;
-    private String messageId;
-    private String messageCreatorId;
-    private DateTime messageCreationTimestamp;
- 
-    //Getters and setters
- 
-    @Override
-    public String toString() {
-        return "InputMetadata [traceParent=" + traceParent + ", traceState=" + traceState + ", messageId=" + messageId + ", 
-	messageCreatorId=" + messageCreatorId + ", messageCreationTimestamp=" + messageCreationTimestamp + "]"
-    }
-}
-```
+### Model classes
 
 ```
 Subscription.java
 ```
 
 ```
-package com.howtodoinjava.rest.model;
- 
-public class Subscitption {
-  
-  public Subscription() {
-  }
- 
-    public Subscription(String email, String firstName, String gender, Date dateOfBirth, Boolean flagConsent,  String newsletterId, String subscriptionId) {
-        super();
+package subscriptionservice.springframework.domain;
+
+import io.swagger.annotations.ApiModelProperty;
+
+import java.util.Date;
+
+//@Entity
+public class Subscription {
+	
+    //@email
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @ApiModelProperty(notes = "The email from customer")
+    private String email;
+    @ApiModelProperty(notes = "The auto-generated first name")
+    private String firstName;
+    @ApiModelProperty(notes = "The gender")
+    private String gender;
+    @ApiModelProperty(notes = "The date Of Birth")
+    private Date dateOfBirth;
+    @ApiModelProperty(notes = "The flag Consent")
+    private Boolean flagConsent;
+    @ApiModelProperty(notes = "The newsletter Id", required = true)
+    private String newsletterId;
+    @ApiModelProperty(notes = "The subscription id", required = true)
+    private Integer subscriptionId;
+     
+   
+    public String email() {
+        return email;
+    }
+
+    public void setemail(String email) {
         this.email = email;
+    }
+
+    public String firstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+    
+    public String gender() {
+        return gender;
+    }
+
+    public void setgender(String gender) {
         this.gender = gender;
+    }
+
+   public Date getdateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setdateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public Boolean getflagConsent() {
+        return flagConsent;
+    }
+
+    public void setflagConsent(Boolean flagConsent) {
         this.flagConsent = flagConsent;
+    }
+    
+    public String getnewsletterId() {
+        return newsletterId;
+    }
+
+    public void setString(String newsletterId) {
         this.newsletterId = newsletterId;
+    }
+    
+    public Integer getsubscriptionId() {
+        return subscriptionId;
+    }
+
+    public void setsubscriptionId(Integer subscriptionId) {
         this.subscriptionId = subscriptionId;
     }
-  
-    private String email;
-    private String firstName;
-    private String gender;
-    private Date dateOfBirth;
-    private Boolean flagConsent;
-    private String newsletterId;
-    private Sring subscriptionId;
- 
-    //Getters and setters
- 
-    @Override
-    public String toString() {
-        return subcriptionId;
-    }
+    
 }
-```
 
-```
-DAO class uses a static list to store data. Here we need to implement actual database interaction.
-SubscriptionDAO.java
 ```
 
 ### Running the application locally
