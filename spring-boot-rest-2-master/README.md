@@ -19,88 +19,97 @@ It detects spring-webmvc so configure default spring mvc application beans. It h
 It detects embed tomcat jars so configure embedded tomcat for us.
 It detects JSON jars so configure JSON support to APIs.
 
-## Model classes and DAO
-
-```
-InputMetada.java
-```
-```
-package com.howtodoinjava.rest.model;
-import java.util.DateTime;
- 
-public class Metadata {
-  
-  public InputMetadata() {
-  }
- 
-    public InputMetadata(String traceParent, String traceState, String messageId, String messageCreatorId, DateTime messageCreationTimestamp) {
-        super();
-        this.traceParent = traceParent;
-        this.traceState = traceState;
-        this.messageId = messageId;
-        this.messageCreatorId = messageCreatorId;
-        this.messageCreationTimestamp = messageCreationTimestamp;
-    }
-  
-    private String traceParent;
-    private String traceState;
-    private String messageId;
-    private String messageCreatorId;
-    private DateTime messageCreationTimestamp;
- 
-    //Getters and setters
- 
-    @Override
-    public String toString() {
-        return "InputMetadata [traceParent=" + traceParent + ", traceState=" + traceState + ", messageId=" + messageId + ", 
-	messageCreatorId=" + messageCreatorId + ", messageCreationTimestamp=" + messageCreationTimestamp + "]"
-    }
-}
-```
+## Model classes 
 
 ```
 Subscription.java
 ```
 
 ```
-package com.howtodoinjava.rest.model;
- 
-public class Subscitption {
-  
-  public Subscription() {
-  }
- 
-    public Subscription(String email, String firstName, String gender, Date dateOfBirth, Boolean flagConsent,  String newsletterId, String subscriptionId) {
-        super();
+package subscriptionservice.springframework.domain;
+
+import io.swagger.annotations.ApiModelProperty;
+
+import java.util.Date;
+
+//@Entity
+public class Subscription {
+	
+    //@email
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @ApiModelProperty(notes = "The email from customer")
+    private String email;
+    @ApiModelProperty(notes = "The auto-generated first name")
+    private String firstName;
+    @ApiModelProperty(notes = "The gender")
+    private String gender;
+    @ApiModelProperty(notes = "The date Of Birth")
+    private Date dateOfBirth;
+    @ApiModelProperty(notes = "The flag Consent")
+    private Boolean flagConsent;
+    @ApiModelProperty(notes = "The newsletter Id", required = true)
+    private String newsletterId;
+    @ApiModelProperty(notes = "The subscription id", required = true)
+    private Integer subscriptionId;
+     
+   
+    public String email() {
+        return email;
+    }
+
+    public void setemail(String email) {
         this.email = email;
+    }
+
+    public String firstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+    
+    public String gender() {
+        return gender;
+    }
+
+    public void setgender(String gender) {
         this.gender = gender;
+    }
+
+   public Date getdateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setdateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public Boolean getflagConsent() {
+        return flagConsent;
+    }
+
+    public void setflagConsent(Boolean flagConsent) {
         this.flagConsent = flagConsent;
+    }
+    
+    public String getnewsletterId() {
+        return newsletterId;
+    }
+
+    public void setString(String newsletterId) {
         this.newsletterId = newsletterId;
+    }
+    
+    public Integer getsubscriptionId() {
+        return subscriptionId;
+    }
+
+    public void setsubscriptionId(Integer subscriptionId) {
         this.subscriptionId = subscriptionId;
     }
-  
-    private String email;
-    private String firstName;
-    private String gender;
-    private Date dateOfBirth;
-    private Boolean flagConsent;
-    private String newsletterId;
-    private Sring subscriptionId;
- 
-    //Getters and setters
- 
-    @Override
-    public String toString() {
-        return subcriptionId;
-    }
+    
 }
-```
-
-```
-DAO class uses a static list to store data. Here we need to implement actual database interaction.
-SubscriptionDAO.java
 ```
 
 ## Running the application locally
@@ -128,7 +137,7 @@ To shutdown the jar, follow the below mentioned steps on a Windows machine.
 *	In command prompt execute the **jcmd** command to print a list of all running Java processes
 *	**Taskkill /PID PROCESS_ID_OF_RUNNING_APP /F** execute this command by replacing the **PROCESS_ID_OF_RUNNING_APP** with the actual process id of the running jar found out from executing the previous command
 
-The app will start running at <http://localhost:8080>, change the database settings in **application.properties** file as per your need.
+The app will start running at <http://localhost:8083>, change the database settings in **application.properties** file as per your need.
 
 ## Running the application via docker container
 
@@ -137,7 +146,7 @@ The app will start running at <http://localhost:8080>, change the database setti
 DockerHub Pull Command
 
 ```text
-docker pull filipedaraujo/spring-boot-subscription-service
+docker pull filipedaraujo/SubscriptionCaseStudy/spring-boot-rest-2-master
 ```
 
 Ensure you build a jar of the application before building a docker image.  
@@ -157,8 +166,8 @@ On Windows machine use **Windows Powershell**, navigate to the project folder wh
 |`docker images`                                           | take a look at the container images.                                     |
 |`docker ps`                                               | list all the running containers.                                         |
 |`docker ps -a`                                            | list all the containers, including the ones that have finished executing.|
-|**`docker build -t spring-boot-subscription-service .`**  | **Build docker image of the project**                                    |
-|**`docker run spring-boot-subscription-service`**         | **run the project's docker container**                                   |
+|**`docker build -t spring-boot-rest-2-master .`**         | **Build docker image of the project**                                    |
+|**`docker run spring-boot-rest-2-master`**                | **run the project's docker container**                                   |
 |`docker stop [container_id]`                              | stop a container                                                         |
 |`docker rm $(docker ps -aq)`                              | stop and remove all containers                                           |
 
