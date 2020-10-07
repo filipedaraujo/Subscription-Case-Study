@@ -43,4 +43,4 @@ To complete the subscription process, once the subscription was persisted by the
 * 	[Azure Cloud](https://azure.microsoft.com/) - Microsoft Cloud Provider
 
 ### Spring Boot Subscription Application
-*   /filipedaraujo/SubscriptionCaseStudy/spring-boot-subscriptionservice
+*   /filipedaraujo/Subscription-Case-Study/spring-boot-subscriptionservice
