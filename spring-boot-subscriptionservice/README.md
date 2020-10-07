@@ -20,7 +20,7 @@ The controller of the application, `SubscriptionController`, defines the REST AP
 ## Spring Boot Application
 Our REST APIs skeleton is ready. Now we need to configure Spring to detect our rest controller (using auto scanning) and deploy apis in embedded tomcat server. Thankfully, Spring boot makes all these things very easy by using the concept of auto configuration.
 
-Auto-configuration attempts to guess and configure beans we you are likely to need. Auto-configuration classes are usually applied based on the jars in application classpath and the beans we have defined additionally in @Configuration classes.
+Auto-configuration attempts to guess and configure beans we you are likely to need. Auto-configuration classes are usually applied based on the jars in application classpath and the beans we have defined additionally in `@Configuration` classes.
 
 In this case, it does following things.
 
@@ -136,10 +136,8 @@ public class Subscription{
 
     public void setSubscriptionId(Integer subscriptionId) {
         this.subscriptionId = subscriptionId;
-    }
-    
+    }   
 }
-
 ```
 
 At this point, you should be able to test the configuration by starting the app and pointing your browser to `http://localhost:8080/v2/api-docs.`
@@ -178,12 +176,12 @@ The app will start running at <http://localhost:8083>, change the database setti
 
 ## Running the application via docker container
 
-* 	[filipedaraujo/SubscriptionCaseStudy/spring-boot-rest-2-master](https://hub.docker.com/repository/docker/filipedaraujo/spring-boot-subscription-service) - DockerHub Image
+* 	[filipedaraujo/SubscriptionCaseStudy/spring-boot-subscriptionservice](https://hub.docker.com/repository/docker/filipedaraujo/spring-boot-subscriptionservice) - DockerHub Image
 
 DockerHub Pull Command
 
 ```text
-docker pull filipedaraujo/SubscriptionCaseStudy/spring-boot-rest-2-master
+docker pull filipedaraujo/SubscriptionCaseStudy/spring-boot-subscriptionservice
 ```
 
 Ensure you build a jar of the application before building a docker image.  
@@ -203,8 +201,8 @@ On Windows machine use **Windows Powershell**, navigate to the project folder wh
 |`docker images`                                           | take a look at the container images.                                     |
 |`docker ps`                                               | list all the running containers.                                         |
 |`docker ps -a`                                            | list all the containers, including the ones that have finished executing.|
-|**`docker build -t spring-boot-rest-2-master .`**         | **Build docker image of the project**                                    |
-|**`docker run spring-boot-rest-2-master`**                | **run the project's docker container**                                   |
+|**`docker build -t spring-boot-subscriptionservice .`**   | **Build docker image of the project**                                    |
+|**`docker run spring-boot-subscriptionservice`**          | **run the project's docker container**                                   |
 |`docker stop [container_id]`                              | stop a container                                                         |
 |`docker rm $(docker ps -aq)`                              | stop and remove all containers                                           |
 
