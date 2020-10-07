@@ -1,5 +1,12 @@
 # Spring Boot Subscription Application
 
+## Requirements
+JDK 1.8 or later
+Gradle 4+ or Maven 3.2+
+
+You can also import the code straight into your IDE:
+Spring Tool Suite (STS)
+
 ## Spring Boot REST API Controller
 In Spring, a controller class, which is capable of serving REST API requests, is called rest controller. It should be annotated with `@RestController` annotation.
 The resource uris are specified in `@RequestMapping` annotations. It can be applied at class level and method level both. Complete URI for an API is resolved after adding class level path and method level path.
