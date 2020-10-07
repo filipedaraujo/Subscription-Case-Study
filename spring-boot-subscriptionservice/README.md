@@ -176,12 +176,12 @@ The app will start running at <http://localhost:8083>, change the database setti
 
 ## Running the application via docker container
 
-* 	[filipedaraujo/SubscriptionCaseStudy/spring-boot-subscriptionservice](https://hub.docker.com/repository/docker/filipedaraujo/spring-boot-subscriptionservice) - DockerHub Image
+* 	[filipedaraujo/Subscription-Case-Study/spring-boot-subscriptionservice](https://hub.docker.com/repository/docker/filipedaraujo/spring-boot-subscriptionservice) - DockerHub Image
 
 DockerHub Pull Command
 
 ```text
-docker pull filipedaraujo/SubscriptionCaseStudy/spring-boot-subscriptionservice
+docker pull filipedaraujo/Subscription-Case-Study/spring-boot-subscriptionservice
 ```
 
 Ensure you build a jar of the application before building a docker image.  
