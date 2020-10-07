@@ -26,16 +26,7 @@ To complete the subscription process, once the subscription was persisted by the
 
 <img src="subscription-service-sequence.jpg"/>
 
-## Getting Started
-
-### Requirements
-JDK 1.8 or later
-Gradle 4+ or Maven 3.2+
-
-You can also import the code straight into your IDE:
-Spring Tool Suite (STS)
-
-### Tech stack & Open-source libraries
+## Tech stack & Open-source libraries
 *   [Spring Boot](https://spring.io/projects/spring-boot) - Framework to ease the bootstrapping and development of new Spring Applications
 *   [Spring Data MongoDB](https://spring.io/projects/spring-data-mongodb) - provides integration with the MongoDB document database
 *   [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway) - Spring Cloud Gateway aims to provide a simple, yet effective way to route to APIs and provide cross cutting concerns to them such as: security, monitoring/metrics, and resiliency
